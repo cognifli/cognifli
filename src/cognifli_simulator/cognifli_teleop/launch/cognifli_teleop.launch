@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>
-  <node name="keyboard_control" pkg="cognifli_teleop" type="key_teleop.py" output="screen"/>
-</launch>
