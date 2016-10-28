@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="x" default="1.000"/>
+  <arg name="y" default="0.250"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find cognifli_description)/cognifli_drone/urdf/cognifli_drone.urdf.xacro'" />
+  <node name="cognifli_drone_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+        args="-urdf -model cognifli_drone -param robot_description -x $(arg x) -y $(arg y) -z 0.2 -R 0.0 -P 0.0 -Y 1.57"/>
+
+  <!-- publish all the frames to TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    <param name="publish_frequency" value="50"/> <!-- Hz -->
+  </node>
+  
+    <!-- source that publishes the joint positions as a sensor_msgs/JointState -->
+  <param name="use_gui" value="false"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+</launch>
