@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="realsense_demo_tf" args="1 0 1 0 0 0 1 map realsense_link 100" />
+  <include file="$(find realsense_driver)/launch/realsense_driver.launch"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense_driver)/rviz/realsense_driver_demo.rviz"/>
+</launch>
