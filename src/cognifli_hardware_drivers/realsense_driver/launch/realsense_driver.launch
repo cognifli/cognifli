@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- Check out https://github.com/intel-ros/realsense/blob/indigo-devel/realsense_camera/launch/r200_nodelet_rgbd.launch -->
+
+  <arg name="serial_no"    default="" />
+  <arg name="usb_port_id"  default="" />
+
+  <include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch">
+    <arg name="camera"          value="realsense" />
+
+    <!-- "serial_no" or "usb_port_id" should be a unique identifier to connect to a device -->
+    <arg name="serial_no"                       value="$(arg serial_no)" />
+    <arg name="usb_port_id"                     value="$(arg usb_port_id)" />
+
+    <!-- Best known configuration for generating depth registered point cloud. -->
+    <arg name="mode"                            value="manual" />
+    <arg name="color_width"                     value="640" />
+    <arg name="color_height"                    value="480" />
+    <arg name="depth_width"                     value="480" />
+    <arg name="depth_height"                    value="360" />
+    <arg name="depth_fps"                       value="30" />
+    <arg name="color_fps"                       value="30" />
+
+    <!-- Arguments for remapping all device namespaces -->
+    <arg name="depth"                           value="depth" />
+    <arg name="rgb"                             value="rgb" />
+    <arg name="ir"                              value="ir" />
+    <arg name="depth_registered"                value="depth_registered" />
+    <arg name="projector"                       value="projector" />
+
+    <!-- Processing Modules -->
+    <arg name="rgb_processing"                  value="true"/>
+    <arg name="ir_processing"                   value="true"/>
+    <arg name="depth_processing"                value="true"/>
+    <arg name="depth_registered_processing"     value="true"/>
+    <arg name="disparity_processing"            value="true"/>
+    <arg name="disparity_registered_processing" value="true"/>
+    <arg name="hw_registered_processing"        value="false" />
+    <arg name="sw_registered_processing"        value="true" />
+  </include>
+</launch>
