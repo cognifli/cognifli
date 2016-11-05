@@ -17,7 +17,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>cognifli_description</run_depend>
-  <run_depend>cognifli_control</run_depend> 
+<!--  <run_depend>cognifli_control</run_depend> />-->
   <run_depend>gazebo_ros</run_depend> 
 
   <export>
