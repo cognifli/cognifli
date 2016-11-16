@@ -58,7 +58,8 @@ DEPS = ["ros-indigo-ros-control",
         "ros-indigo-rosserial",
         "ros-indigo-openni-launch",
         "ros-indigo-imu-filter-madgwick",
-        "ros-indigo-realsense-camera"]
+        "ros-indigo-realsense-camera",
+        "ros-indigo-rotors-simulator"]
 
 try:
     CMAKE_PREFIX_PATH=os.environ["CMAKE_PREFIX_PATH"]
