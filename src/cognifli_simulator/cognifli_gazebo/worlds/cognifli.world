@@ -30,21 +30,22 @@
     <include>
       <uri>model://sun</uri>
     </include>
-    <model name="test_chamber_map">
-      <pose>-20 -34 0.0001 0 0 0</pose>
+
+    <model name="arc_drone_lab_map">
+      <pose> 0 0 0.1 0 0 0</pose>
       <static>true</static>
       <link name="map">
         <visual name="visual">
           <geometry>
             <mesh>
-              <uri>file://test_chamber0.dae</uri>
+              <uri>file://arc_drone_lab.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name="collision">
           <geometry>
             <mesh>
-              <uri>file://test_chamber0_collision.dae</uri>
+              <uri>file://arc_drone_lab.dae</uri>
             </mesh>
           </geometry>
         </collision>
@@ -52,7 +53,7 @@
     </model>
     <gui fullscreen="0">
       <camera name="user_camera">
-        <pose>-17.5 -32.0 12.0 0.0 1.57 0.0</pose>
+        <pose>-0.5 -2.0 12.0 0.0 1.57 0.0</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
