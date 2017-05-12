@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node pkg="snap_cam" type="snap_cam_publisher_node" name="snap_cam_optflow_publisher" output="screen">
+
+    <!--
+    "optflow" or "highres" -->
+    <param name="camera_type" value="optflow"/>
+
+    <!--
+    optical flow: 0: QVGASize (320,240)
+                  1: VGASize (640,480) -->
+    <param name="camera_resolution" value="1"/>
+
+    <!--
+    optical flow: 0: 15, 1: 24, 2: 30, 3: 60, 4: 90, 5: 30, 6: 30 -->
+    <param name="camera_fps_idx" value="0"/>
+
+    <param name="topic_name" value="image"/>
+  </node>
+</launch>
